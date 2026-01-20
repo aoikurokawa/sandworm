@@ -27,7 +27,7 @@ impl DuneClient {
     /// # Example
     ///
     /// ```no_run
-    /// use sandworm::DuneClient;
+    /// use arrakis::DuneClient;
     ///
     /// let client = DuneClient::new("your-api-key").unwrap();
     /// ```
@@ -70,8 +70,8 @@ impl DuneClient {
     /// # Example
     ///
     /// ```no_run
-    /// # async fn example() -> sandworm::Result<()> {
-    /// use sandworm::DuneClient;
+    /// # async fn example() -> arrakis::Result<()> {
+    /// use arrakis::DuneClient;
     ///
     /// let client = DuneClient::new("your-api-key")?;
     /// let response = client.execute_sql("SELECT * FROM ethereum.transactions LIMIT 10").await?;
@@ -108,8 +108,8 @@ impl DuneClient {
     /// # Example
     ///
     /// ```no_run
-    /// # async fn example() -> sandworm::Result<()> {
-    /// use sandworm::DuneClient;
+    /// # async fn example() -> arrakis::Result<()> {
+    /// use arrakis::DuneClient;
     ///
     /// let client = DuneClient::new("your-api-key")?;
     /// let response = client.execute_query(1234567).await?;
@@ -169,8 +169,8 @@ impl DuneClient {
     /// # Example
     ///
     /// ```no_run
-    /// # async fn example() -> sandworm::Result<()> {
-    /// use sandworm::DuneClient;
+    /// # async fn example() -> arrakis::Result<()> {
+    /// use arrakis::DuneClient;
     ///
     /// let client = DuneClient::new("your-api-key")?;
     /// let status = client.get_execution_status("01234567-89ab-cdef-0123-456789abcdef").await?;
@@ -260,8 +260,8 @@ impl DuneClient {
     /// # Example
     ///
     /// ```no_run
-    /// # async fn example() -> sandworm::Result<()> {
-    /// use sandworm::DuneClient;
+    /// # async fn example() -> arrakis::Result<()> {
+    /// use arrakis::DuneClient;
     ///
     /// let client = DuneClient::new("your-api-key")?;
     /// let results = client.get_latest_results(1234567).await?;
@@ -333,8 +333,8 @@ impl DuneClient {
     /// # Example
     ///
     /// ```no_run
-    /// # async fn example() -> sandworm::Result<()> {
-    /// use sandworm::DuneClient;
+    /// # async fn example() -> arrakis::Result<()> {
+    /// use arrakis::DuneClient;
     ///
     /// let client = DuneClient::new("your-api-key")?;
     /// let response = client.cancel_execution("01234567-89ab-cdef-0123-456789abcdef").await?;
@@ -367,9 +367,10 @@ impl DuneClient {
     /// # Example
     ///
     /// ```no_run
-    /// # async fn example() -> sandworm::Result<()> {
-    /// use sandworm::DuneClient;
+    /// # async fn example() -> arrakis::Result<()> {
     /// use std::time::Duration;
+    ///
+    /// use arrakis::DuneClient;
     ///
     /// let client = DuneClient::new("your-api-key")?;
     /// let results = client.run_sql(

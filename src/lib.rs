@@ -14,8 +14,9 @@
 //! ## Quick Start
 //!
 //! ```no_run
-//! use sandworm::{DuneClient, Result};
 //! use std::time::Duration;
+//!
+//! use arrakis::{DuneClient, Result};
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<()> {
@@ -44,9 +45,9 @@
 //! For more control, you can manually manage the execution lifecycle:
 //!
 //! ```no_run
-//! use sandworm::{DuneClient, ExecutionState};
+//! use arrakis::{DuneClient, ExecutionState};
 //!
-//! # async fn example() -> sandworm::Result<()> {
+//! # async fn example() -> arrakis::Result<()> {
 //! let client = DuneClient::new("your-api-key")?;
 //!
 //! // Start execution

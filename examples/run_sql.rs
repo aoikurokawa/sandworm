@@ -3,7 +3,9 @@ use std::time::Duration;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let client = DuneClient::new("")?;
+    let api_key =
+        std::env::var("DUNE_API_KEY").expect("DUNE_API_KEY environment variable must be set");
+    let client = DuneClient::new(&api_key)?;
 
     let results = client
         .run_sql(

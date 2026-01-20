@@ -1,8 +1,11 @@
-use reqwest::{header, Client};
 use std::time::Duration;
 
-use crate::error::{DuneError, Result};
-use crate::types::*;
+use reqwest::{header, Client};
+
+use crate::{
+    error::{DuneError, Result},
+    types::*,
+};
 
 const BASE_URL: &str = "https://api.dune.com/api";
 const DEFAULT_TIMEOUT_SECS: u64 = 30;
@@ -11,7 +14,6 @@ const DEFAULT_TIMEOUT_SECS: u64 = 30;
 #[derive(Debug, Clone)]
 pub struct DuneClient {
     client: Client,
-    api_key: String,
     base_url: String,
 }
 
@@ -53,14 +55,8 @@ impl DuneClient {
 
         Ok(Self {
             client,
-            api_key,
             base_url: base_url.into(),
         })
-    }
-
-    /// Returns the API key being used.
-    pub fn api_key(&self) -> &str {
-        &self.api_key
     }
 
     // ==================== Execute Endpoints ====================
@@ -433,7 +429,10 @@ impl DuneClient {
                 }
                 ExecutionState::Failed => {
                     return Err(DuneError::ExecutionFailed {
-                        message: "Query execution failed".to_string(),
+                        message: format!(
+                            "Query execution failed for execution_id {}: {:?}",
+                            execution_id, status
+                        ),
                     });
                 }
                 ExecutionState::Cancelled => {

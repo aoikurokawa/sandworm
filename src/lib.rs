@@ -81,6 +81,12 @@ mod client;
 mod error;
 mod types;
 
+/// Blocking client for the Dune Analytics API.
+///
+/// This module provides a synchronous (blocking) client that mirrors the async
+/// [`DuneClient`](crate::DuneClient) API.
+pub mod blocking;
+
 pub use client::DuneClient;
 pub use error::{DuneError, Result};
 pub use types::*;

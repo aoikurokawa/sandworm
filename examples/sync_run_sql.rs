@@ -1,4 +1,4 @@
-use arrakis::{blocking::DuneClient, Result};
+use arrakis::{Result, blocking::DuneClient};
 use std::time::Duration;
 
 fn main() -> Result<()> {

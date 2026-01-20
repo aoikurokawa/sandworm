@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use reqwest::{header, Client};
+use reqwest::{Client, header};
 
 use crate::{
     error::{DuneError, Result},
@@ -461,12 +461,12 @@ impl DuneClient {
             let body = response.text().await.unwrap_or_default();
 
             // Try to parse error message from response
-            if let Ok(error_response) = serde_json::from_str::<serde_json::Value>(&body) {
-                if let Some(message) = error_response.get("error").and_then(|e| e.as_str()) {
-                    return Err(DuneError::Api {
-                        message: message.to_string(),
-                    });
-                }
+            if let Ok(error_response) = serde_json::from_str::<serde_json::Value>(&body)
+                && let Some(message) = error_response.get("error").and_then(|e| e.as_str())
+            {
+                return Err(DuneError::Api {
+                    message: message.to_string(),
+                });
             }
 
             Err(DuneError::Api {

@@ -25,12 +25,7 @@ Add this to your `Cargo.toml`:
 arrakis = "0.5"
 ```
 
-For the blocking client, enable the `blocking` feature:
-
-```toml
-[dependencies]
-arrakis = { version = "0.5" }
-```
+This enables both the async and blocking clients; no extra feature flags are required.
 
 ## Quick Start
 
@@ -153,13 +148,13 @@ See the [examples](examples/) directory for more usage patterns:
 DUNE_API_KEY=your_key cargo run --example run_sql
 
 # Run the blocking example
-DUNE_API_KEY=your_key cargo run --example sync_run_sql --features blocking
+DUNE_API_KEY=your_key cargo run --example sync_run_sql
 ```
 
 ## License
 
 Licensed under either of:
 
-- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+- Apache License, Version 2.0 ([LICENSE](LICENSE) or http://www.apache.org/licenses/LICENSE-2.0)
 
 at your option.

@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-use reqwest::{header, Client};
+use reqwest::{Client, header};
 
 use crate::{
     error::{DuneError, Result},
